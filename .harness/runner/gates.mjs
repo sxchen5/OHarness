@@ -36,6 +36,33 @@ function latestSprintFiles(root) {
   return { sprint, progress: existsSync(join(root, progress)) ? progress : null };
 }
 
+function readProjectTestCommand(root) {
+  const commandsFile = join(root, '.harness/config/project-commands.yaml');
+  if (!existsSync(commandsFile)) return null;
+  const text = readText(commandsFile);
+  const match = text.match(/^\s*test:\s*"?([^"\n]+)"?\s*$/m);
+  return match ? match[1].trim() : null;
+}
+
+function runL1Verification(root) {
+  const script = join(root, '.harness/scripts/verify-l1.sh');
+  const bash = spawnSync('bash', [script, '--root', root], {
+    encoding: 'utf8',
+    cwd: root,
+  });
+  if (bash.status === 0) return bash;
+
+  const testCmd = readProjectTestCommand(root);
+  if (process.platform === 'win32' && testCmd) {
+    return spawnSync(testCmd, {
+      encoding: 'utf8',
+      cwd: root,
+      shell: true,
+    });
+  }
+  return bash;
+}
+
 export function runGate(phase, state, root, config) {
   const gates = config.gates || {};
   const featureDir = resolveFeatureDir(root, state.feature_id);
@@ -104,10 +131,7 @@ export function runGate(phase, state, root, config) {
       if (pending > 0) {
         return gateResult(false, `${pending} tasks still pending — continue EXEC`, 'EXEC', { stay: true });
       }
-      const l1 = spawnSync('bash', [join(root, '.harness/scripts/verify-l1.sh'), '--root', root], {
-        encoding: 'utf8',
-        cwd: root,
-      });
+      const l1 = runL1Verification(root);
       const ok = l1.status === 0;
       return gateResult(ok, ok ? 'all tasks done, L1 passed' : `L1 failed: ${l1.stderr || l1.stdout}`, ok ? 'EVAL' : null);
     }
