@@ -1,0 +1,2 @@
+[2026-06-14T23:49:35+08:00] INIT: branch=cursor/feature-mqdymnpz-f82a tier=M feature_id=feature-mqdymnpz requirement="继续优化贪吃蛇项目，初始速度太快"
+[2026-06-14T23:52:00+08:00] SPEED: INITIAL_TICK_MS 150→280, MIN_TICK_MS 80→100, SPEED_STEP_MS=15

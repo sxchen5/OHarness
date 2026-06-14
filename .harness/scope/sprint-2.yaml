@@ -1,0 +1,14 @@
+sprint: 2
+feature_id: feature-mqdymnpz
+tier: M
+
+in_scope:
+  - path: snake-game
+    description: 贪吃蛇速度参数与 UI
+
+out_of_scope:
+  - path: .harness/runner
+    reason: 框架代码（非本需求）
+
+dependencies:
+  - feature-mqdxnbef
