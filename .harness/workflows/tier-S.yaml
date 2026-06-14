@@ -1,0 +1,26 @@
+# S 档 — 小改动（bugfix、单字段、文案）
+id: tier-S
+name: Lean Autopilot
+description: 最小路径：发现 → 规格+任务 → 执行 → 验证 → 收官
+
+phases:
+  - INIT
+  - DISCOVER
+  - SPECIFY
+  - PLAN_TASKS
+  - SPRINT
+  - EXEC
+  - EVAL
+  - CLOSE
+  - PR
+  - DONE
+
+options:
+  generate_plan: false
+  generate_data_model: false
+  generate_contracts: false
+  generate_checklists: false
+  run_e2e: false
+  run_spec_check: false
+  run_analyze: false
+  scope_phase: false

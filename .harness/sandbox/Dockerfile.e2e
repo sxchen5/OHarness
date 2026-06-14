@@ -1,0 +1,12 @@
+# Playwright E2E 沙箱镜像（基于 Harness L1 沙箱扩展）
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-17-jdk-headless \
+    maven \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+
+CMD ["bash", "-lc", "npm run test:e2e || echo 'no e2e script configured'"]

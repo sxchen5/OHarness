@@ -1,0 +1,26 @@
+# M 档 — 默认（1-2 个 User Story、单模块）
+id: tier-M
+name: Standard Autopilot
+description: 标准路径：完整 spec/plan/tasks + Sprint 执行 + L2 验证
+
+phases:
+  - INIT
+  - DISCOVER
+  - SPECIFY
+  - PLAN_TASKS
+  - SPRINT
+  - EXEC
+  - EVAL
+  - CLOSE
+  - PR
+  - DONE
+
+options:
+  generate_plan: true
+  generate_data_model: auto
+  generate_contracts: auto
+  generate_checklists: false
+  run_e2e: auto
+  run_spec_check: false
+  run_analyze: true
+  scope_phase: true

@@ -1,0 +1,13 @@
+# Monorepo 子项目声明 — Autopilot 多模块 scope 生成
+projects:
+  - id: frontend
+    path: scan-platform-frontend
+    type: node
+    keywords: [前端, frontend, ui, vue, 页面, 大屏]
+  - id: backend
+    path: scan-platform-backend
+    type: maven
+    keywords: [后端, backend, api, 接口, java, spring]
+
+# 未匹配任何关键词时，默认 in_scope 全部项目
+default_in_scope: all

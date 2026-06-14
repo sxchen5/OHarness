@@ -1,0 +1,27 @@
+# L 档 — 大需求（跨模块、改造、合规审计）
+id: tier-L
+name: Full Autopilot
+description: 全量路径：含 scope、spec-check、E2E、完整 analyze
+
+phases:
+  - INIT
+  - DISCOVER
+  - SPECIFY
+  - PLAN_TASKS
+  - SPRINT
+  - EXEC
+  - EVAL
+  - E2E
+  - CLOSE
+  - PR
+  - DONE
+
+options:
+  generate_plan: true
+  generate_data_model: true
+  generate_contracts: true
+  generate_checklists: true
+  run_e2e: true
+  run_spec_check: true
+  run_analyze: true
+  scope_phase: true
