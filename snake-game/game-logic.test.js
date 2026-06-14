@@ -2,6 +2,8 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   GRID_SIZE,
+  INITIAL_TICK_MS,
+  MIN_TICK_MS,
   createGame,
   spawnFood,
   changeDirection,
@@ -18,6 +20,12 @@ describe('createGame', () => {
     assert.deepEqual(game.snake[0], { x: mid, y: mid });
     assert.equal(game.score, 0);
     assert.equal(game.gameOver, false);
+  });
+
+  it('starts with relaxed initial speed', () => {
+    const game = createGame();
+    assert.equal(game.tickMs, INITIAL_TICK_MS);
+    assert.ok(game.tickMs >= 250, `expected tickMs >= 250, got ${game.tickMs}`);
   });
 });
 
@@ -83,6 +91,25 @@ describe('tick', () => {
     };
     game = tick(game);
     assert.equal(game.gameOver, true);
+  });
+
+  it('accelerates after every 5 foods and respects minimum speed', () => {
+    let game = createGame();
+    assert.equal(game.tickMs, INITIAL_TICK_MS);
+
+    const head = game.snake[0];
+    for (let i = 0; i < 5; i += 1) {
+      game = spawnFood(game, { x: head.x + 1 + i, y: head.y });
+      game = tick(game);
+    }
+    assert.equal(game.foodsEaten, 5);
+    assert.equal(game.tickMs, INITIAL_TICK_MS - 15);
+
+    game = { ...game, foodsEaten: 95, tickMs: MIN_TICK_MS + 5 };
+    game = spawnFood(game, { x: 0, y: 0 });
+    game = { ...game, food: { x: game.snake[0].x + 1, y: game.snake[0].y } };
+    game = tick(game);
+    assert.ok(game.tickMs >= MIN_TICK_MS);
   });
 });
 

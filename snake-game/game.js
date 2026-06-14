@@ -44,10 +44,11 @@ function saveHighScore(score) {
 }
 
 function speedLabel(tickMs) {
-  if (tickMs <= 90) return '极快';
-  if (tickMs <= 110) return '快';
-  if (tickMs <= 130) return '较快';
-  return '普通';
+  if (tickMs <= 110) return '极快';
+  if (tickMs <= 160) return '快';
+  if (tickMs <= 220) return '较快';
+  if (tickMs <= 270) return '普通';
+  return '悠闲';
 }
 
 function updateUI() {

@@ -1,8 +1,9 @@
 export const GRID_SIZE = 20;
 export const CELL_SIZE = 20;
 export const SCORE_PER_FOOD = 10;
-export const INITIAL_TICK_MS = 150;
-export const MIN_TICK_MS = 80;
+export const INITIAL_TICK_MS = 280;
+export const MIN_TICK_MS = 100;
+export const SPEED_STEP_MS = 15;
 
 /**
  * @returns {import('./game-types.js').GameState}
@@ -102,7 +103,7 @@ export function tick(state) {
     foodsEaten: ate ? state.foodsEaten + 1 : state.foodsEaten,
     tickMs:
       ate && (state.foodsEaten + 1) % 5 === 0
-        ? Math.max(MIN_TICK_MS, state.tickMs - 10)
+        ? Math.max(MIN_TICK_MS, state.tickMs - SPEED_STEP_MS)
         : state.tickMs,
   };
 
