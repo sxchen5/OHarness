@@ -1,0 +1,3 @@
+[2026-06-14T23:22:06+08:00] INIT: branch=cursor/feature-mqdxnbef-f82a tier=M feature_id=feature-mqdxnbef requirement="写一个贪吃蛇网页游戏"
+[2026-06-14T23:24:00+08:00] SPECIFY: 3 US (P1基础玩法/P2暂停重开/P3最高分), Canvas 20x20, 纯静态 snake-game/
+[2026-06-14T23:24:00+08:00] PLAN: game-logic.js 抽离可测逻辑, node:test 单元测试, localStorage 最高分
