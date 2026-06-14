@@ -1,0 +1,16 @@
+[2026-06-14T15:51:20.643Z] session=1 phase=INIT event=session_end phase_INIT_complete
+[2026-06-14T15:51:20.644Z] session=2 phase=INIT event=session_start phase_INIT_complete
+[2026-06-14T15:51:20.862Z] session=2 phase=DISCOVER event=session_end phase_DISCOVER_complete
+[2026-06-14T15:51:20.863Z] session=3 phase=DISCOVER event=session_start phase_DISCOVER_complete
+[2026-06-14T15:51:21.084Z] session=3 phase=SPECIFY event=session_end phase_SPECIFY_complete
+[2026-06-14T15:51:21.085Z] session=4 phase=SPECIFY event=session_start phase_SPECIFY_complete
+[2026-06-14T15:51:21.284Z] session=4 phase=PLAN_TASKS event=session_end phase_PLAN_TASKS_complete
+[2026-06-14T15:51:21.285Z] session=5 phase=PLAN_TASKS event=session_start phase_PLAN_TASKS_complete
+[2026-06-14T15:51:21.727Z] session=5 phase=SPRINT event=session_end phase_SPRINT_complete
+[2026-06-14T15:51:21.727Z] session=6 phase=SPRINT event=session_start phase_SPRINT_complete
+[2026-06-14T15:52:08.300Z] session=6 phase=EXEC event=session_end phase_EXEC_complete
+[2026-06-14T15:52:08.301Z] session=7 phase=EXEC event=session_start phase_EXEC_complete
+[2026-06-14T15:52:08.490Z] session=7 phase=EVAL event=session_end phase_EVAL_complete
+[2026-06-14T15:52:08.491Z] session=8 phase=EVAL event=session_start phase_EVAL_complete
+[2026-06-14T15:52:08.691Z] session=8 phase=CLOSE event=session_end phase_CLOSE_complete
+[2026-06-14T15:52:08.692Z] session=9 phase=CLOSE event=session_start phase_CLOSE_complete

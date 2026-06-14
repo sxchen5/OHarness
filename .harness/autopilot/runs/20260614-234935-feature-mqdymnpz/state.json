@@ -1,0 +1,177 @@
+{
+  "run_id": "20260614-234935-feature-mqdymnpz",
+  "phase": "PR",
+  "phase_index": 8,
+  "requirement": "继续优化贪吃蛇项目，初始速度太快",
+  "tier": "M",
+  "workflow_id": "tier-M",
+  "feature_id": "feature-mqdymnpz",
+  "branch": "cursor/feature-mqdymnpz-f82a",
+  "sdd_provider": "speckit",
+  "openspec_change": null,
+  "create_pr": true,
+  "session_id": 9,
+  "exec_batch_index": 0,
+  "sessions": [
+    {
+      "session_id": 1,
+      "phase": "INIT",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:20.643Z",
+      "event": "session_end",
+      "reason": "phase_INIT_complete"
+    },
+    {
+      "session_id": 2,
+      "phase": "INIT",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:20.644Z",
+      "event": "session_start",
+      "reason": "phase_INIT_complete"
+    },
+    {
+      "session_id": 2,
+      "phase": "DISCOVER",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:20.862Z",
+      "event": "session_end",
+      "reason": "phase_DISCOVER_complete"
+    },
+    {
+      "session_id": 3,
+      "phase": "DISCOVER",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:20.863Z",
+      "event": "session_start",
+      "reason": "phase_DISCOVER_complete"
+    },
+    {
+      "session_id": 3,
+      "phase": "SPECIFY",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:21.084Z",
+      "event": "session_end",
+      "reason": "phase_SPECIFY_complete"
+    },
+    {
+      "session_id": 4,
+      "phase": "SPECIFY",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:21.085Z",
+      "event": "session_start",
+      "reason": "phase_SPECIFY_complete"
+    },
+    {
+      "session_id": 4,
+      "phase": "PLAN_TASKS",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:21.284Z",
+      "event": "session_end",
+      "reason": "phase_PLAN_TASKS_complete"
+    },
+    {
+      "session_id": 5,
+      "phase": "PLAN_TASKS",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:21.285Z",
+      "event": "session_start",
+      "reason": "phase_PLAN_TASKS_complete"
+    },
+    {
+      "session_id": 5,
+      "phase": "SPRINT",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:21.727Z",
+      "event": "session_end",
+      "reason": "phase_SPRINT_complete"
+    },
+    {
+      "session_id": 6,
+      "phase": "SPRINT",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:51:21.727Z",
+      "event": "session_start",
+      "reason": "phase_SPRINT_complete"
+    },
+    {
+      "session_id": 6,
+      "phase": "EXEC",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:52:08.300Z",
+      "event": "session_end",
+      "reason": "phase_EXEC_complete"
+    },
+    {
+      "session_id": 7,
+      "phase": "EXEC",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:52:08.301Z",
+      "event": "session_start",
+      "reason": "phase_EXEC_complete"
+    },
+    {
+      "session_id": 7,
+      "phase": "EVAL",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:52:08.490Z",
+      "event": "session_end",
+      "reason": "phase_EVAL_complete"
+    },
+    {
+      "session_id": 8,
+      "phase": "EVAL",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:52:08.491Z",
+      "event": "session_start",
+      "reason": "phase_EVAL_complete"
+    },
+    {
+      "session_id": 8,
+      "phase": "CLOSE",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:52:08.691Z",
+      "event": "session_end",
+      "reason": "phase_CLOSE_complete"
+    },
+    {
+      "session_id": 9,
+      "phase": "CLOSE",
+      "exec_batch_index": 0,
+      "at": "2026-06-14T15:52:08.692Z",
+      "event": "session_start",
+      "reason": "phase_CLOSE_complete"
+    }
+  ],
+  "retry_count": 0,
+  "fix_retry_count": 0,
+  "exec_batches_completed": 0,
+  "status": "running",
+  "created_at": "2026-06-14T15:49:35.263Z",
+  "updated_at": "2026-06-14T15:52:08.760Z",
+  "artifacts": {
+    "run_dir": ".harness/autopilot/runs/20260614-234935-feature-mqdymnpz",
+    "discovery": ".harness/autopilot/runs/20260614-234935-feature-mqdymnpz/discovery.md",
+    "decisions": ".harness/autopilot/runs/20260614-234935-feature-mqdymnpz/decisions.log",
+    "spec": "D:\\study\\202606\\OHarness\\specs\\feature-mqdymnpz/spec.md",
+    "plan": "D:\\study\\202606\\OHarness\\specs\\feature-mqdymnpz/plan.md",
+    "tasks": "D:\\study\\202606\\OHarness\\specs\\feature-mqdymnpz/tasks.md",
+    "sprint": ".harness/sprints/sprint-2.md",
+    "progress": ".harness/sprints/sprint-2-progress.md",
+    "metrics": null,
+    "run_report": ".harness/autopilot/runs/20260614-234935-feature-mqdymnpz/run-report.md",
+    "scope": "D:\\study\\202606\\OHarness\\.harness\\scope\\sprint-1.yaml"
+  },
+  "options": {
+    "generate_plan": true,
+    "generate_data_model": "auto",
+    "generate_contracts": "auto",
+    "generate_checklists": false,
+    "run_e2e": "auto",
+    "run_spec_check": false,
+    "run_analyze": true,
+    "scope_phase": true
+  },
+  "errors": [],
+  "metrics_path": "D:\\study\\202606\\OHarness\\.harness\\metrics\\autopilot-20260614-234935-feature-mqdymnpz.json",
+  "pr_error": "gh CLI not found"
+}
