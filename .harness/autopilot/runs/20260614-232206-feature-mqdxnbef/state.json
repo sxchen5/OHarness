@@ -18,7 +18,7 @@
   "exec_batches_completed": 0,
   "status": "running",
   "created_at": "2026-06-14T15:22:06.332Z",
-  "updated_at": "2026-06-14T15:28:26.124Z",
+  "updated_at": "2026-06-14T15:29:35.892Z",
   "artifacts": {
     "run_dir": ".harness/autopilot/runs/20260614-232206-feature-mqdxnbef",
     "discovery": ".harness/autopilot/runs/20260614-232206-feature-mqdxnbef/discovery.md",
@@ -41,5 +41,6 @@
     "run_analyze": true,
     "scope_phase": true
   },
-  "errors": []
+  "errors": [],
+  "pr_error": "gh CLI not found"
 }

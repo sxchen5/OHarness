@@ -111,6 +111,17 @@ run 结束后输出：
 3. `run-report.md` 摘要
 4. 若有 BLOCKED 项，列出及原因
 
+**度量文件（度量大屏 Autopilot 视图依赖）**：
+
+最后一次 `advance` 进入 `DONE` 时会自动写入 `.harness/metrics/autopilot-<run_id>.json`。  
+若 run 已结束但文件缺失，补跑：
+
+```bash
+node .harness/runner/autopilot.mjs finalize --run <run_id> --done
+```
+
+> 注意：`CLOSE` 阶段写的是 `sprint-*.json`（Harness Sprint 度量），与 `autopilot-*.json`（Autopilot run 度量）是**两个不同文件**。
+
 ## 配置
 
 - 自治策略: `.harness/config/autopilot.yaml`
@@ -217,5 +228,6 @@ HARNESS_E2E_SANDBOX=1 bash .harness/scripts/e2e-sandbox.sh
 
 ## 参考
 
+- **完整使用教程**: `.harness/autopilot/GUIDE.md`
 - 编排器文档: `.harness/runner/README.md`
 - Harness 框架: `.harness/README.original.md`

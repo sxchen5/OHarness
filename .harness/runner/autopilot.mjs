@@ -184,12 +184,26 @@ function cmdAdvance(args) {
     console.log(JSON.stringify({ advanced: false, phase: state.phase, gate }, null, 2));
     process.exit(1);
   }
+  const prevPhase = state.phase;
   const next = advancePhase(state, workflow, gate);
+  handlePostGate(state, { ...gate, pass: true, nextPhase: next }, config);
   state.phase = next;
   state.retry_count = 0;
-  if (next === 'DONE') state.status = 'done';
+  if (next === 'DONE') {
+    maybeWriteRunMetrics(state, config, { markDone: true });
+  } else if (prevPhase === 'CLOSE' && next === 'PR') {
+    maybeWriteRunMetrics(state, config);
+  }
+  if (next === 'PR' && state.create_pr && !state.pr_url) {
+    tryAutoCreatePr(state, config);
+  }
   saveState(ROOT, state);
-  console.log(JSON.stringify({ advanced: true, phase: next, gate }, null, 2));
+  console.log(JSON.stringify({
+    advanced: true,
+    phase: next,
+    gate,
+    metrics_path: state.metrics_path || null,
+  }, null, 2));
 }
 
 function renderPrompt(state, config) {
@@ -297,6 +311,31 @@ function finalizeRun(state, config) {
     }
   }
   return state;
+}
+
+/** Skill / advance 路径：在 CLOSE→PR 或 DONE 时刷新 autopilot-*.json */
+function maybeWriteRunMetrics(state, config, { markDone = false } = {}) {
+  if (markDone) state.status = 'done';
+  return finalizeRun(state, config);
+}
+
+function cmdFinalize(args) {
+  const config = getConfig();
+  const runId = args.run || findLatestRun(ROOT);
+  if (!runId) {
+    console.error('No runs found');
+    process.exit(1);
+  }
+  const state = loadState(ROOT, runId);
+  const updated = maybeWriteRunMetrics(state, config, { markDone: args.done === true });
+  saveState(ROOT, updated);
+  console.log(JSON.stringify({
+    ok: true,
+    run_id: runId,
+    metrics_path: updated.metrics_path,
+    status: updated.status,
+    phase: updated.phase,
+  }, null, 2));
 }
 
 async function cmdResume(args) {
@@ -537,6 +576,7 @@ async function cmdRun(args) {
       if (fresh.retry_count > (config.autonomy?.max_phase_retries || 2)) {
         fresh.status = 'failed';
         fresh.errors.push({ phase: fresh.phase, message: gate.message });
+        maybeWriteRunMetrics(fresh, config);
         saveState(ROOT, fresh);
         console.error('Max retries exceeded');
         process.exit(1);
@@ -582,6 +622,7 @@ Commands:
   learn-policy  Analyze metrics and write learned-policy.json [--write]
   scope-generate  Generate monorepo scope yaml (--run <id>)
   create-pr     Create GitHub PR via gh CLI (--run <id>)
+  finalize      Write autopilot-*.json metrics (--run <id>) [--done]
   queue-add     Enqueue a run (--requirement "...")
   queue-process Process pending queue items [--max N]
   queue-status  Show queue pending items and status
@@ -597,6 +638,7 @@ Options:
   --gate-only           Only check gate, don't launch agent
   --create-pr           Create PR at end
   --write               learn-policy: also write autopilot-learned.yaml
+  --done                finalize: mark run status done
   --max N               queue-process: max items to process (default 1)
 `);
 }
@@ -645,6 +687,9 @@ function main() {
         break;
       case 'create-pr':
         cmdCreatePr(args);
+        break;
+      case 'finalize':
+        cmdFinalize(args);
         break;
       case 'run':
         await cmdRun(args);

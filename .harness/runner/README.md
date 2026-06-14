@@ -119,6 +119,10 @@ Run 结束时写入 `.harness/metrics/autopilot-<run_id>.json`。
 
 见 `.harness/autopilot/ROADMAP.md`
 
+## 完整教程
+
+**新仓库接入、全部用法（Skill / CLI / Webhook / 大屏）**：`.harness/autopilot/GUIDE.md`
+
 ## 产出物
 
 每次 run 在 `.harness/autopilot/runs/<run-id>/` 下：

@@ -1,2 +1,4 @@
 # 可选：覆盖 verify-l1.sh 自动探测的命令
-test: "cd snake-game && npm test"
+# test: "cd scan-platform-backend && mvn -q test"
+# build: "cd scan-platform-frontend && npm run build"
+# lint: ""
